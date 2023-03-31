@@ -1,0 +1,24 @@
+.erreur{
+    width: 100%;
+    align-items: center;
+    color: #FF6060;
+    text-align: center;
+    align-items: center;
+    margin-top: 160px;
+    margin-bottom: 160px;
+}
+.erreur_h2{
+    font-weight: 700;
+    font-size: 288px;
+    margin-bottom: 66px;
+}
+.erreur_p{
+    font-weight: 500;
+    font-size: 36px;
+}
+.erreur_link{
+    font-weight: 500;
+    font-size: 18px;
+    color: #FF6060;
+    text-decoration: underline;
+}
