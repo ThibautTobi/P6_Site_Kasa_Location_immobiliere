@@ -6,7 +6,7 @@ import Propos from './PAGES/Propos';
 import Error from './PAGES/Error';
 
 import './CSS/App.css';
-//import { BrowserRouter as Router, Route} from 'react-router-dom';
+//import { BrowserRouter as Route } from 'react-router-dom'
 
 function App() {
   return (
@@ -16,16 +16,13 @@ function App() {
         
           
         <Home />
-          
-          
+            
         <Fiche />
           
-          
+            
         <Propos />
-          
-          
+        
         <Error />
-          
         
         <Footer />
       </div>
@@ -33,9 +30,20 @@ function App() {
   );
 }
 
+/*
+          <Route exact path="/" element={<Home />}/>
+            
+          <Route path="/Fiche" element={<Fiche />}/> 
+          
+            
+          <Route path="/Propos" element={<Propos />}/>
+        
+
+          <Route path="/." element={<Error />}/>
+*/
 export default App;
 
-/*
+/* probleme sur le switch
       <Router>
         <Banner />
         <Switch>
@@ -54,4 +62,22 @@ export default App;
         </Switch>
         <Footer />
       </Router>
+*/
+
+/*
+<div>
+        <Banner />
+        <Switch>
+          
+          <Route exact path="/" element={<Home />}/>
+            
+          <Route path="/Fiche" element={<Fiche />}/> 
+          
+            
+          <Route path="/Propos" element={<Propos />}/>
+        
+          <Route path="/" element={<Error />}/>
+        </Switch>
+        <Footer />
+      </div>
 */

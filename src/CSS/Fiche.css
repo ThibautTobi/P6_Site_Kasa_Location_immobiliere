@@ -1,5 +1,77 @@
-.para{
+.fiche{
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.fiche_carrousel{
     width: 100%;
-    height: 200px;
-    color: black;
+    height: 415px;
+    border-radius: 25px;
+    background-color: greenyellow; /* attente des import data.img*/
+}
+.fiche_infos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px 0px 30px 0px;
+}
+.fiche_infos_gauche{
+    display: flex;
+    flex-direction: column;
+}
+h2{
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0px;
+}
+.fiche_infos_tag{
+    display: flex;
+    flex-direction: row;
+}
+.fiche_infos_tag_non{
+    width: 115px;
+    height: 25px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color:#FF6060;
+    color: white;
+    text-align: center;
+}
+.fiche_infos_droite{
+    display: flex;
+    flex-direction: column;
+}
+.fiche_infos_droite_host
+{
+    display: flex;
+    flex-direction: row;
+}
+.fiche_infos_droite_img{ /** creation d'image en cercle **/
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    background-color: grey;
+}
+.infos{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+.infos_plus{
+    display: flex;
+    background-color:#FF6060;
+    color: white;
+    width: 43%;
+    height: 47px;
+    border-radius: 5px;
+    margin: 31px 0px 31px 0px;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 0px 18px 0px 18px;
 }

@@ -1,3 +1,7 @@
+.propos{
+    display: flex;
+    flex-direction: column;
+}
 .banner{
     margin-left: 5%;
     margin-right: 5%;
@@ -11,4 +15,39 @@
     border-radius: 25px;
     object-fit:cover;
     mix-blend-mode: darken;
+}
+.propos_div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.propos_div_des{
+    display: flex;
+    background-color:#FF6060;
+    color: white;
+    width: 80%;
+    height: 47px;
+    border-radius: 5px;
+    margin: 31px 0px 0px 0px;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 0px 18px 0px 18px;
+}
+.propos_div_des_modale{
+    background-color: #F6F6F6;
+    width: 80%;
+    height: auto;
+    padding: 0px 18px 0px 18px;
+    border-radius: 5px;
+}
+.p_modale{
+    font-weight: 400;
+    font-size: 24px;
+    line-height:34px;
+    padding: 20px 0px 20px 0px;
+    margin: 0px;
 }

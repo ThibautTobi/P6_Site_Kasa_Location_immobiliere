@@ -1,11 +1,11 @@
 import '../CSS/Footer.css' ;
 
-import logoFooter from '../IMG/cote_roche.png';
+import logo from '../IMG/LOGO.svg';
 
 function Footer (){
     return (
             <footer>
-                <h2>K<image class="footer_logo"src={logoFooter} alt="logoMaison"></image>sa</h2>
+                <img class="footer_logo"src={logo} alt="logo-Maison"></img>
                 <p>© 2020 Kasa. All rights reserved</p>
             </footer>
         )}

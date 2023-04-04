@@ -1,31 +1,32 @@
-import { Link } from 'react-router-dom'
-//import logo from ""
+//import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import logo from "../IMG/LOGO.svg"
 import "../CSS/Banner.css";
+//import Home from '../PAGES/Home';
+//import Propos from '../PAGES/Propos';
 
 function Banner (){
     return (
             <header>
-                <h1>Kaza</h1>
+                <img src={logo} alt='logo-maison'></img>
                 <nav className="banner_nav">
-                  <Link className="banner_nav_acc">Accueil</Link>
-                  <Link className="banner_nav_Pro">A Propos</Link>      
+                  <NavLink className={({ isActive }) => isActive ? "active" : undefined } >Accueil</NavLink>
+                  <NavLink className={({ isActive }) => isActive ? "active" : undefined } >A Propos</NavLink>      
                 </nav>    
             </header>
             )
-
 };
 
-/*
-function navigation (){
-    return(
-        <nav>
-            <Link to="/Home">Accueil</Link>
-            <Link to="/A_Propos">A Propos</Link>
-        </nav>
-    )
-};
-*/
 export default Banner;
 
-//export default navigation
+/*
+                <nav className="banner_nav">
+                  <Link className="banner_nav_acc">Accueil</Link>
+                  <Link className="banner_nav_Pro">A Propos</Link>      
+                </nav> 
+*/
 
+/*
+<NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "" } to={<Home />}>Accueil</NavLink>
+<NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : "" } to={<Propos />}>A Propos</NavLink> 
+*/
