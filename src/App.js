@@ -6,25 +6,27 @@ import Propos from './PAGES/Propos';
 import Error from './PAGES/Error';
 
 import './CSS/App.css';
-//import { BrowserRouter as Route } from 'react-router-dom'
+import { Route,Routes } from 'react-router-dom'
 
 function App() {
   return (
     
       <div>
+      
         <Banner />
-        
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/Fiche" element={<Fiche />}/>
+
           
-        <Home />
-            
-        <Fiche />
+          <Route path="/A-Propos" element={<Propos />}/>
+
           
+          <Route path="*" element={<Error />}/>
             
-        <Propos />
-        
-        <Error />
-        
+        </Routes>
         <Footer />
+      
       </div>
     
   );

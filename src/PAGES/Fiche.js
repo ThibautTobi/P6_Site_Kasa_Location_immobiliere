@@ -57,7 +57,9 @@ function Fiche (){
                 <div className='fiche_infos_droite'>
                     <div className='fiche_infos_droite_host'>
                         <p>{data[0].host.name}</p>
-                        <div className='fiche_infos_img'>{data[0].host.picture}</div>
+                        <div className='fiche_infos_img'>
+                            <img className='fiche_infos_img_picture' src={data[0].host.picture} alt=''></img>
+                        </div>
                     </div>
                     <div className='fiche_infos_rating'>
                         <img src={etoile} alt='etoile' className='fiche_infos_plus_rating_etoile'></img>                        <img src={etoile} alt='etoile' className='fiche_infos_plus_rating_etoile'></img>

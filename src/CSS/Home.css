@@ -26,17 +26,18 @@
     margin-top: 82.5px;
 }
 .home_div{
-    
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 50px;
     background-color: #F6F6F6;
     padding: 56px 50px 43px 50px;
     border-radius: 25px;
-    /*display: flex;
+}
+.home_div_display{
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;*/
+    justify-content: space-around;
 }
 .home_div_cart{
     height: 340px;
@@ -44,6 +45,7 @@
     border-radius: 10px;
     background: linear-gradient(180deg, rgba(255, 96, 96,1) 0%, rgba(0, 0, 0,0.7) 100%);
     object-fit: cover;
+    margin-bottom: 50px;
 }
 .home_div_cart_img{
     padding: 5px 5px 0px 5px;

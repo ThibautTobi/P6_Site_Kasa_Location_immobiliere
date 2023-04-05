@@ -1,6 +1,6 @@
 import '../CSS/Footer.css' ;
 
-import logo from '../IMG/LOGO.svg';
+import logo from '../IMG/LOGO Footer.svg';
 
 function Footer (){
     return (
