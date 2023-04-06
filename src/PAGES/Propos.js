@@ -10,12 +10,10 @@ function Propos (){
 
     const [style, setStyle] = useState("p_modale");
 
-    const changeStyle = () => {  
-        
-            setStyle("p_modale_active");
-            // if(setStyle("p_modale_active")){
-            //     setStyle("p_modale");
-            // }
+    const changeStyle = () => {
+
+        style === "p_modale" ? setStyle("p_modale_active") : setStyle("p_modale");
+
     };
         
      console.log("click");
@@ -42,6 +40,7 @@ function Propos (){
   };
 */
 
+/* changeStyle,(1) */
 
     const engagements = 
 /** si je click je return une div avec le paragraphe **/
@@ -53,8 +52,8 @@ function Propos (){
                     <p className={style ?block 1 : }>Les annonces postées sur Kasa garantissent une fiabilité totale.
                     Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes.</p>
                 </div> */}
-                <div className='propos_div_des' onClick={changeStyle}>Respect
-                    <img src={fleche} alt='fleche'></img>
+                <div className='propos_div_des' onClick={changeStyle}>Respect   
+                    <img src={fleche} alt='fleche' ></img>
                 </div>
                 <div className='propos_div_des_modale'>
                     <p className={style}>La bienveillance fait partie des valeurs fondatrices de Kasa.
@@ -89,3 +88,14 @@ function Propos (){
 };
 
 export default Propos;
+
+
+
+// const changeStyle = () => {
+//     if( style === "p_modale" ){
+//         setStyle("p_modale_active");
+//     }
+//     else{
+//         setStyle("p_modale");
+//     }
+// };

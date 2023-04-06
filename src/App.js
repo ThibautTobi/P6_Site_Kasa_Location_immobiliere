@@ -1,7 +1,7 @@
 import Footer from './COMPONENTS/Footer';
 import Banner from './COMPONENTS/Banner';
 import Home from './PAGES/Home';
-import Fiche from './PAGES/Fiche';
+// import Fiche from './PAGES/Fiche';
 import Propos from './PAGES/Propos';
 import Error from './PAGES/Error';
 
@@ -16,10 +16,10 @@ function App() {
         <Banner />
         <Routes>
           <Route exact path="/" element={<Home />}/>
-          <Route path="/Fiche" element={<Fiche />}/>
+          {/* <Route path="/Fiche" element={<Fiche />}/> */}
 
           
-          <Route path="/A-Propos" element={<Propos />}/>
+          <Route path="/Propos" element={<Propos />}/>
 
           
           <Route path="*" element={<Error />}/>
