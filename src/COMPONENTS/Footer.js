@@ -5,7 +5,7 @@ import logo from '../IMG/LOGO Footer.svg';
 function Footer (){
     return (
             <footer>
-                <img class="footer_logo"src={logo} alt="logo-Maison"></img>
+                <img className="footer_logo"src={logo} alt="logo-Maison"></img>
                 <p>© 2020 Kasa. All rights reserved</p>
             </footer>
         )}

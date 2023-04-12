@@ -1,14 +1,44 @@
 .fiche{
     width: 90%;
     height: auto;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 5%;
 }
 .fiche_carrousel{
+    position: relative;
     width: 100%;
     height: 415px;
     border-radius: 25px;
-    background-color: greenyellow; /* attente des import data.img*/
+}
+.fiche_carrousel_img{ 
+    display: none;
+    width: 100%;
+    height: 415px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+.fiche_carrousel_img.active{
+    display:block; 
+}
+
+.fiche_carrousel_cadre{
+    position: absolute;
+    width: 100%;
+    height: 415px;
+    border-radius: 25px;
+}
+.fiche_carrousel_fleche{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    margin-top: auto;
+    margin-bottom: auto;  
+}
+.fiche_carrousel_flecheGauche,.fiche_carrousel_flecheDroite{
+    padding: 0% 3% 0% 3%;
+}
+.fiche_carrousel_num{
+    color: white;
+    text-align: center;
 }
 .fiche_infos{
     width: 100%;
@@ -47,12 +77,14 @@ h2{
 {
     display: flex;
     flex-direction: row;
+    margin: 20px;
 }
 .fiche_infos_img{
     width: 64px;
     height: 64px;
     border-radius: 50px;
     background-color: grey;
+    margin-left: 20px;
 }
 .fiche_infos_img_picture{
     width: 64px;
@@ -60,6 +92,12 @@ h2{
     border-radius: 50px;
     object-fit: cover;
 }
+.fiche_infos_plus_rating_etoile{
+    color: #E3E3E3;
+}
+.fiche_infos_plus_rating_etoile_active{
+    color: #FF6060;
+} 
 .infos{
     display: flex;
     flex-direction: row;
@@ -67,22 +105,64 @@ h2{
     height: auto;
     justify-content: space-between;
 }
+ .infos_display{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+} 
 .infos_plus{
     display: flex;
     background-color:#FF6060;
     color: white;
-    width: 43%;
+    width: 80%;
     height: 47px;
     border-radius: 5px;
-    margin: 31px 0px 31px 0px;
+    margin: 31px 0px 0px 0px;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
     font-size: 24px;
     padding: 0px 18px 0px 18px;
+} 
+/*//////////////////////////// importer et changer les non pour les partagés */
+.propos_div_des_show{
+    background-color: #F6F6F6;
+    width: 80%;
+    height: auto;
+    padding: 0px 18px 0px 18px;
+    border-radius: 5px;
+}
+.p_show{
+    display: none;
+    font-weight: 400;
+    font-size: 24px;
+    line-height:34px;
+    padding: 20px 0px 20px 0px;
+    margin: 0px;
+}
+ .p_show_active{
+    display: block;
+    font-weight: 400;
+    font-size: 24px;
+    line-height:34px;
+    padding: 20px 0px 20px 0px;
+    margin: 0px;
+} 
+/********** version mobile ***********/
+ @media screen and (max-width: 620px) {
+.fiche_infos{
+    flex-direction: column;
+}
+.fiche_infos_droite{
+    flex-direction: row-reverse;
+    
 }
 
-/********** version mobile ***********/
-/* @media screen and (min-width: 620px) {
-
-} */
+.infos{
+    flex-direction: column;
+}
+.infos_plus{
+    width: 100%;
+}
+} 
