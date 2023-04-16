@@ -1,5 +1,5 @@
 import Footer from './COMPONENTS/Footer';
-import Banner from './COMPONENTS/Banner';
+import Header from './COMPONENTS/Header';
 import Home from './PAGES/Home';
 import Fiche from './PAGES/Fiche';
 import Propos from './PAGES/Propos';
@@ -11,7 +11,7 @@ function App() {
 
   return (
       <div>
-        <Banner />
+        <Header />
         <Routes>
           <Route exact path="/" element={<Home />}/>
           <Route path="/Fiche/:id" element={<Fiche />}/>

@@ -17,6 +17,7 @@
     mix-blend-mode: darken;     /* a regarder les effets aucun constaté*/
     background: #000000;    /* a regarder les effets aucun constaté*/
     opacity: 1;             /* a regarder les effets aucun constaté*/
+    filter: brightness(50%); /* opaciter 50%*/
 }
 .home_bannier_payasage_titre{
     text-align: center; 

@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import logo from "../IMG/LOGO.svg"
 import "../CSS/Banner.css";
 
-function Banner (){
+function Header (){
     return (
             <header>
                 <img src={logo} alt='logo-maison'></img>
@@ -14,4 +14,4 @@ function Banner (){
             )
 };
 
-export default Banner;
+export default Header;

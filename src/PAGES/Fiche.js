@@ -8,35 +8,77 @@ import etoile from '../IMG/Etoile.svg';
 import etoile_active from '../IMG/Etoile_active.svg';
 import '../CSS/Fiche.css';
 import { useParams } from 'react-router-dom';
+//import { useEffect } from 'react';
+//import { useNavigate } from 'react-router-dom';
+//import { Navigate } from 'react-router-dom';
 
 function Fiche (){
 
+    //const Navigate = useNavigate();
+
     const {id}  = useParams();
-    //console.log(id);
-    const dataFiche = data.find(e => e.id === id);
-    //console.log(dataFiche);
+    console.log(id);
+    const dataFiche = data.find(e => e.id === id ); 
+    // ? const dataFiche : <Navigate to="/"/>   traiter l'erreur d'id
+    // const dataFiche = '';
+    // if(data.id === id ){
+    //    dataFiche = data.find(e => e.id === id );
+    // }else{
+    //     <Navigate to="/"/>
+    // }
+    console.log(dataFiche);
+
+    // if(id !== data.id){}
 
     const [style, setStyle] = useState("p_show");
     const [fleche,setFleche]= useState(flecheBas);
     // const [open,setOpen] = useState(0);
 
     const changeStyle = (e) => {
-        //console.log(e);
         style === "p_show" ? setStyle("p_show_active") : setStyle("p_show");
         fleche === flecheBas ? setFleche(flecheHaut) : setFleche(flecheBas) ;
 };
 
 
- // intégré dans un fonction Carrousel le composant SlideShow 
 function Slideshow(props){
-    // console.log(props);
+    //console.log(props);
+    console.log(props.pictures[0]);
+    console.log(props.pictures[+1]);
     const [numb,setNumb] = useState(0);
+    const [changeImg,setChangeImg] = useState(props.pictures[0]);
 
     const length = dataFiche.pictures.length ;
 
-    // function changeImgAuto (){
+    /* en cours de devellopement */
+    const changeImgAuto = 
+        setInterval(() => {
+            setChangeImg(props.pictures[+1])
+        }, 5000)
+    ;
 
-    // };
+
+    ////////////////////////////// a tester changement d'image auto
+    // const changeImage = () => {
+    //     const [image, setImage] = useState(dataFiche.pictures);
+      
+    //     useEffect(() => {
+    //         //Implementing the setInterval method
+    //         const interval = setInterval(() => {
+    //             setImage(dataFiche.pictures.length + 1);
+    //         }, 1000);
+      
+            //Clearing the interval
+        //     return () => clearInterval(interval);
+        // }, [image]);
+      
+        // return <h1>{}</h1>;
+    //};
+
+
+
+// setTimer(()=>{
+
+//},1000);
 
     function handleClicPrev (){    
         const prev = numb - 1;
@@ -51,17 +93,19 @@ function Slideshow(props){
     return (
         <div className="fiche_carrousel"> 
             <div className='fiche_carrousel_cadre'>
+                <img className={"fiche_carrousel_img_active"} src={changeImg} alt="photos"></img>
+            {/* version de base sans changement de page dynamique
             {props.pictures.map((element,index) =>
             <img className={"fiche_carrousel_img "+(numb === index ? "active" : "" )} key={index} src={element} alt="photos"></img>
-            )}
+            )} */}
             </div>
-            <div className='fiche_carrousel_cadre'>
+            <div className={(length === 1 ? 'fiche_carrousel_cadre_none' :'fiche_carrousel_cadre')}>
                 <div className='fiche_carrousel_fleche'>   
                     <img className="fiche_carrousel_flecheGauche" src={flecheGauche} alt='fleche gauche' onClick={handleClicPrev}></img>
                     <img className="fiche_carrousel_flecheDroite" src={flecheDroite} alt='fleche droite'onClick={handleClicNext}></img>
                 </div> 
                 <p className='fiche_carrousel_num'>{numb + 1}/{length}</p>
-            </div>   
+            </div>  
         </div>
     )
     };
@@ -74,16 +118,16 @@ function Slideshow(props){
             </ul>
         )
     };
-    
+
    function Rating (){
 
         return (
             <div className='fiche_infos_rating'>
-                <img src={(dataFiche.rating < 1 ? etoile : etoile_active)} alt='etoile' ></img>
-                <img src={(dataFiche.rating < 2 ? etoile : etoile_active)} alt='etoile' ></img>
-                <img src={(dataFiche.rating < 3 ? etoile : etoile_active)} alt='etoile' ></img>
-                <img src={(dataFiche.rating < 4 ? etoile : etoile_active)} alt='etoile' ></img>
-                <img src={(dataFiche.rating < 5 ? etoile : etoile_active)} alt='etoile' ></img>
+                <img src={(dataFiche.rating < 1 ? etoile : etoile_active)} alt='etoile' className='fiche_infos_rating_etoile'></img>
+                <img src={(dataFiche.rating < 2 ? etoile : etoile_active)} alt='etoile' className='fiche_infos_rating_etoile'></img>
+                <img src={(dataFiche.rating < 3 ? etoile : etoile_active)} alt='etoile' className='fiche_infos_rating_etoile'></img>
+                <img src={(dataFiche.rating < 4 ? etoile : etoile_active)} alt='etoile' className='fiche_infos_rating_etoile'></img>
+                <img src={(dataFiche.rating < 5 ? etoile : etoile_active)} alt='etoile' className='fiche_infos_rating_etoile'></img>
             </div>                        
         )
    };
@@ -142,43 +186,4 @@ return (
         </section>
    )
 };
-
 export default Fiche;
-
-// function infosGauche (){
-
-//     return(
-//         <div className='fiche_infos_gauche'>
-//             <h2>{data[0].title}</h2>
-//             <p>{data[0].description}</p>
-//             <div className='fiche_infos_tag'>
-//             <div className='fiche_infos_tag_non'>cozy</div>
-//             <div className='fiche_infos_tag_non'>canal</div>
-//             <div className='fiche_infos_tag_non'>parais 10</div>
-//             </div>
-//         </div>
-//     )
-// };
-
-// function infosDroite (){
-
-
-
-//     return(
-//                 <div className='fiche_infos_droite'>
-//                     <div className='fiche_infos_droite_host'>
-//                         <p>{data[0].host.name}</p>
-//                         <div className='fiche_infos_img'>
-//                             <img className='fiche_infos_img_picture' src={data[0].host.picture} alt=''></img>
-//                         </div>
-//                     </div>
-//                     <div className='fiche_infos_rating'>
-//                         <img src={etoile} alt='etoile' className='fiche_infos_plus_rating_etoile'></img>                        
-//                         <img src={etoile} alt='etoile' className='fiche_infos_plus_rating_etoile'></img>
-//                         <img src={etoile} alt='etoile' className='fiche_infos_plus_rating_etoile'></img>
-//                         <img src={etoile} alt='etoile' className='fiche_infos_plus_rating_etoile'></img>
-//                         <img src={etoile} alt='etoile' className='fiche_infos_plus_rating_etoile'></img>
-//                     </div>
-//                 </div>
-//     )
-// };
