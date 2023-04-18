@@ -21,7 +21,7 @@ function Home () {
  
     return(
         <section>
-            <div class="home_bannier"> 
+            <div className="home_bannier"> 
                 <div className='home_bannier_cadre'>
                     <img src={paysage_rocheux} class="home_bannier_payasage" alt="paysage rocheux" title='Chez vous , partout et ailleurs'></img>
                 </div>

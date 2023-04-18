@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import flecheBas from '../IMG/Vector-fleche.svg';           
-import flecheHaut from '../IMG/Vector-fleche-ouvert.svg';   
+//import { useEffect } from 'react';
+//import flecheBas from '../IMG/Vector-fleche.svg';           
+//import flecheHaut from '../IMG/Vector-fleche-ouvert.svg';   
 import flecheGauche from '../IMG/Vector_gauche.svg';
 import flecheDroite from '../IMG/Vector_droite.svg';
 import {data} from '../Data/Data';
@@ -8,54 +9,79 @@ import etoile from '../IMG/Etoile.svg';
 import etoile_active from '../IMG/Etoile_active.svg';
 import '../CSS/Fiche.css';
 import { useParams } from 'react-router-dom';
-//import { useEffect } from 'react';
-//import { useNavigate } from 'react-router-dom';
-//import { Navigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom'; est ce que c'est mieux ?
+import { Navigate } from 'react-router-dom';
+import Collapses from '../COMPONENTS/Collapses';
 
 function Fiche (){
-
-    //const Navigate = useNavigate();
-
+    //const navigate = useNavigate();
     const {id}  = useParams();
     console.log(id);
-    const dataFiche = data.find(e => e.id === id ); 
-    // ? const dataFiche : <Navigate to="/"/>   traiter l'erreur d'id
-    // const dataFiche = '';
-    // if(data.id === id ){
-    //    dataFiche = data.find(e => e.id === id );
-    // }else{
-    //     <Navigate to="/"/>
-    // }
+////////////////////////////////////////////////////////////// a voir 
+    const dataFiche = data.find(e => id === e.id);
     console.log(dataFiche);
+    if (dataFiche === undefined){ 
+        return <Navigate to="/"/> ;
+    };
+    // useEffect(() => {
+    //     if (dataFiche === undefined) {
+          
+    //         navigate("/"); ou  (navigate("/"),{replace : true})
+    //     }
+    //   }, []);
 
-    // if(id !== data.id){}
-
-    const [style, setStyle] = useState("p_show");
-    const [fleche,setFleche]= useState(flecheBas);
-    // const [open,setOpen] = useState(0);
-
-    const changeStyle = (e) => {
-        style === "p_show" ? setStyle("p_show_active") : setStyle("p_show");
-        fleche === flecheBas ? setFleche(flecheHaut) : setFleche(flecheBas) ;
-};
-
+   
+    console.log(dataFiche);
 
 function Slideshow(props){
     //console.log(props);
-    console.log(props.pictures[0]);
-    console.log(props.pictures[+1]);
+    //console.log(props.pictures[0]);
+    //console.log(props.pictures[+1]);
     const [numb,setNumb] = useState(0);
-    const [changeImg,setChangeImg] = useState(props.pictures[0]);
+    //const [changeImg,setChangeImg] = useState(props.pictures[0]);
+    //const [activeIndex,setActiveIndex] = useState(0);
 
     const length = dataFiche.pictures.length ;
 
-    /* en cours de devellopement */
-    const changeImgAuto = 
-        setInterval(() => {
-            setChangeImg(props.pictures[+1])
-        }, 5000)
-    ;
+//     const updateIndex = (newIndex) =>{
+//        newIndex >= props.pictures ? newIndex = 0 : setActiveIndex(newIndex);
+//        console.log(newIndex);
+//     };
 
+// useEffect(()=>{
+//     const interval = setInterval(()=>{
+//         updateIndex(length !== activeIndex ?  activeIndex + 1 : newIndex);},5000);
+
+//         return (() => {
+//             if (interval) {
+//                 clearInterval(interval);
+//               }
+//         }
+//         )
+//     }, [activeIndex]);
+
+
+
+    /* en cours de devellopement */
+    // function changeImgAuto (){ 
+        // console.log(length);
+    // if (length > 0 ){
+        // setInterval(() => {
+        //     setChangeImg( props.pictures[0] + 1 )
+        // }, 5000)
+    //}
+// };
+    //     setInterval(() => {
+    //         setChangeImg(props.pictures[+1])
+    //     }, 5000)
+    // ;
+        //console.log(changeImg);
+    // function changeImgAuto (){ 
+    // setInterval(() => {
+    //     setChangeImg(props.pictures[+1])
+    //     console.log(changeImg);
+    // }, 5000)};
+    
 
     ////////////////////////////// a tester changement d'image auto
     // const changeImage = () => {
@@ -74,12 +100,6 @@ function Slideshow(props){
         // return <h1>{}</h1>;
     //};
 
-
-
-// setTimer(()=>{
-
-//},1000);
-
     function handleClicPrev (){    
         const prev = numb - 1;
         setNumb(prev < 0 ? length-1 : prev);
@@ -93,11 +113,11 @@ function Slideshow(props){
     return (
         <div className="fiche_carrousel"> 
             <div className='fiche_carrousel_cadre'>
-                <img className={"fiche_carrousel_img_active"} src={changeImg} alt="photos"></img>
-            {/* version de base sans changement de page dynamique
+                {/* <img className={"fiche_carrousel_img_active"} src={changeImgAuto} alt="photos"></img> */}
+            {/* version de base sans changement de page dynamique */}
             {props.pictures.map((element,index) =>
             <img className={"fiche_carrousel_img "+(numb === index ? "active" : "" )} key={index} src={element} alt="photos"></img>
-            )} */}
+            )}
             </div>
             <div className={(length === 1 ? 'fiche_carrousel_cadre_none' :'fiche_carrousel_cadre')}>
                 <div className='fiche_carrousel_fleche'>   
@@ -131,8 +151,25 @@ function Slideshow(props){
             </div>                        
         )
    };
+//    function infos (){
 
-    function Equipements (){
+
+
+
+    //      function ChangeStyle () {
+
+    //         const [open,setOpen] = useState(false);
+    //         const [fleche,setFleche]= useState(flecheBas);
+    //         //const [show,setShow] = useState()
+    //         const [style, setStyle] = useState("p_show");
+
+    //     open === false ? setOpen(true) : setOpen(false);
+    //     // style === "p_show" ? setStyle("p_show_active") : setStyle("p_show");
+    //     open === true ?setStyle("p_show_active") && setFleche(flecheHaut): setStyle("p_show") && setFleche(flecheBas);
+    //     // fleche === flecheBas ? setFleche(flecheHaut) : setFleche(flecheBas) ;
+    //     // open === true ? setFleche(flecheHaut) : setFleche(flecheBas) ;
+
+        function Equipements (){
 
         return dataFiche.equipments.map((element,index)=>
         <ul>
@@ -141,11 +178,38 @@ function Slideshow(props){
         )
     };
 
+         
+
+        //  return (
+        //     <div className='infos'>
+        //         <div className='infos_display'>
+        //             <div className='infos_plus' onClick={ChangeStyle}>description
+        //                 <img src={fleche} alt='fleche'></img>
+        //             </div>
+        //             <div className='propos_div_des_show'> 
+        //                 <p className={style}>{dataFiche.description}</p>
+        //             </div>
+        //         </div>
+        //         <div className='infos_display'>
+        //             <div className='infos_plus' onClick={ChangeStyle}>equipements
+        //                 <img src={fleche} alt='fleche'></img>
+        //             </div>
+        //             <div className='propos_div_des_show'>
+        //                 <p className={style}>{Equipements()}</p>
+        //             </div>
+        //         </div>
+        //     </div>
+        //  )
+        // };
+    
+
+
+        const titre1 = 'description';
+        const titre2 = 'equipement';
 return (
         <section className='fiche'>
             <Slideshow pictures={dataFiche.pictures} />
             <div className='fiche_infos'>
-                {/* {infosGauche} */}
                 <div className='fiche_infos_gauche'>
                         <h2>{dataFiche.title}</h2>
                         <p>{dataFiche.location}</p>
@@ -153,7 +217,6 @@ return (
                         {Tags()}
                         </div>
                 </div>       
-                    {/* {infosDroite} */}
                 <div className='fiche_infos_droite'>
                     <div className='fiche_infos_droite_host'>
                         <p>{dataFiche.host.name}</p>
@@ -164,8 +227,17 @@ return (
                     {Rating()} 
                 </div>
             </div>
-            {/* {infosClic} */}
-            <div className='infos'>
+            <div className='display_infos'>
+                <div className='display_infos_width'>
+                    {Collapses(dataFiche.id,titre1,dataFiche.description)}
+                </div>
+                <div className='display_infos_width'>
+                    {Collapses(dataFiche.id,titre2,Equipements())} 
+                </div>
+                {/* {Collapses(dataFiche.id,titre1,dataFiche.description)}
+                {Collapses(dataFiche.id,titre2,dataFiche.description)}   */}
+            </div>
+            {/* <div className='infos'>
                 <div className='infos_display'>
                     <div className='infos_plus' onClick={changeStyle}>description
                         <img src={fleche} alt='fleche'></img>
@@ -182,8 +254,9 @@ return (
                         <p className={style}>{Equipements()}</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div> */}
+        </section>  
    )
 };
+
 export default Fiche;

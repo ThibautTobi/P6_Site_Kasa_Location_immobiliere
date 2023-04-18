@@ -3,6 +3,7 @@
     flex-direction: column;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 100px;
     width: 90%;
 }
 .banner{
@@ -17,19 +18,23 @@
 }
 .propos_div{
     width: 100%;
-    height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.propos_div_des{
+.propos_div_width{
+    width: 100%;
+    height: auto;
+    margin: 20px 0px 20px 0px;
+}
+
+/* .propos_div_des{
+    width: auto;
+    height: 47px;
     display: flex;
     background-color:#FF6060;
     color: white;
-    width: 98%;
-    height: 47px;
     border-radius: 5px;
-    margin: 31px 0px 0px 0px;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
@@ -38,7 +43,7 @@
 }
 .propos_div_des_show{
     background-color: #F6F6F6;
-    width: 98%;
+    width: auto;
     height: auto;
     padding: 0px 18px 0px 18px;
     border-radius: 5px;
@@ -53,4 +58,4 @@
 }
  .p_show_active{
     display: block;
-} 
+}  */
