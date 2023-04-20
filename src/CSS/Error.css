@@ -1,16 +1,16 @@
 .erreur{
     width: 100%;
+    height: auto;
     align-items: center;
     color: #FF6060;
     text-align: center;
     align-items: center;
-    margin-top: 160px;
-    margin-bottom: 160px;
+    margin-bottom: 150px;
 }
 .erreur_h2{
     font-weight: 700;
     font-size: 288px;
-    margin-bottom: 66px;
+    margin: 80px 0px 50px 0px ;
 }
 .erreur_p{
     font-weight: 500;
@@ -21,4 +21,20 @@
     font-size: 18px;
     color: #FF6060;
     text-decoration: underline;
+    margin-left: 0px;
 }
+/********** version mobile ***********/
+@media screen and (max-width: 768px) {
+.erreur_h2{
+    font-size: 96px;
+    margin-bottom: 20px;
+}
+.erreur_p{
+    margin: 0% 5% 0% 5%;
+    font-size: 18px;
+    margin-bottom: 133px;
+}
+.erreur_link{
+    font-size: 14px;
+}
+    }

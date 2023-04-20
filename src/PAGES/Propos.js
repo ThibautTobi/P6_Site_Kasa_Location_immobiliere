@@ -1,29 +1,9 @@
-//import { useState } from 'react';
 import '../CSS/Propos.css';
 import paysage_montagne from '../IMG/montage.png';
-//import flecheBas from '../IMG/Vector-fleche.svg';
-//import flecheHaut from '../IMG/Vector-fleche-ouvert.svg';
-//import {dataPropos} from '../Data/DataAPropos';
 import Collapses from '../COMPONENTS/Collapses';
-import '../CSS/Collapses.css';
 
 function Propos (){
-    //const [style, setStyle] = useState("p_show");
-    //const [fleche,setFleche]= useState(flecheBas);
-    //const [open,setOpen] = useState(0);
-
-/****************************  bonne version sauf que l'on n'ouvre pas plusieurs en méme temps */
-            // if( open === id ){
-            //     setOpen(id);
-            //     console.log('click');
-            // }else{
-            //     setOpen(id);
-            //     console.log('click cache');
-            // }
-    //};
-
-
-/** */
+/** donnés pour collapses **/
     const dataPropos = [
         {
         "id":"1",
@@ -53,38 +33,6 @@ function Propos (){
         }
     ];
 
-
-    // function Collapses (id,name,description){
-
-    //     const [open,setOpen] = useState(false);
-    //     const [fleche,setFleche]= useState(flecheBas);
-    //     //const [show,setShow] = useState()
-    //     const [style, setStyle] = useState("p_show");
-
-    //          function ChangeStyle () {
-    //         open === false ? setOpen(true) : setOpen(false);
-    //         // style === "p_show" ? setStyle("p_show_active") : setStyle("p_show");
-    //         open === true ?setStyle("p_show_active") && setFleche(flecheHaut): setStyle("p_show") && setFleche(flecheBas);
-    //         // fleche === flecheBas ? setFleche(flecheHaut) : setFleche(flecheBas) ;
-    //         // open === true ? setFleche(flecheHaut) : setFleche(flecheBas) ;
-    //          };
-
-    // return (
-    //                 <div className='propos_div' id={id} key={id}>
-    //                     <div className='propos_div_des' onClick={ChangeStyle}>
-    //                         {name}
-    //                         <img src={fleche} alt='fleche'></img>
-    //                     </div>
-    //                     <div className={'propos_div_des_show '}>
-    //                         <p className={style}>
-    //                         {description}
-    //                         </p>
-    //                     </div>
-    //                 </div>
-    //                 )
-    // };
-
-
     return (
         <div className='propos'>
             <div className='banner'>
@@ -92,47 +40,19 @@ function Propos (){
             </div>
             <div className="propos_div">
                 <div className='propos_div_width'>
-                    {Collapses(dataPropos[0].id,dataPropos[0].name,dataPropos[0].description)}
+                    <Collapses  id={dataPropos[0].id} name={dataPropos[0].name} description={dataPropos[0].description}/>
                 </div>
                 <div className='propos_div_width'>
-                    {Collapses(dataPropos[1].id,dataPropos[1].name,dataPropos[1].description)}  
+                    <Collapses  id={dataPropos[1].id} name={dataPropos[1].name} description={dataPropos[1].description}/>  
                 </div>
                 <div className='propos_div_width'>
-                    {Collapses(dataPropos[2].id,dataPropos[2].name,dataPropos[2].description)}
+                    <Collapses  id={dataPropos[2].id} name={dataPropos[2].name} description={dataPropos[2].description}/>
                 </div>
                 <div className='propos_div_width'>
-                    {Collapses(dataPropos[3].id,dataPropos[3].name,dataPropos[3].description)}
+                    <Collapses  id={dataPropos[3].id} name={dataPropos[3].name} description={dataPropos[3].description}/>
                 </div>
-                {/* {Collapses(dataPropos[0].id,dataPropos[0].name,dataPropos[0].description)}
-                {Collapses(dataPropos[1].id,dataPropos[1].name,dataPropos[1].description)}
-                {Collapses(dataPropos[2].id,dataPropos[2].name,dataPropos[2].description)}
-                {Collapses(dataPropos[3].id,dataPropos[3].name,dataPropos[3].description)} */}
             </div>
         </div>
     )
 };
 export default Propos;
-
-
-/********************************** initial qui fonctionne  ouverture unique **************************************/
-// function Collapses (id){
-
-//     const [open,setOpen] = useState(0);
-
-//         function changeStyle (id) {
-//             if( open === id ){
-//                 setOpen(id);
-//             }else{
-//                 setOpen(id);
-//             }
-//         };
-//     return dataPropos.map((element,index)=>
-//         <div className='propos_div' key={index}>
-//             <div className='propos_div_des' onClick={()=>changeStyle(element.id)}>{element.name} 
-//                 <img src={(open === element.id ? flecheHaut : flecheBas ) } alt='fleche'></img>
-//             </div>
-//             <div className={'propos_div_des_show ' + (open === element.id ? 'p_show_active' : 'p_show')}>
-//                 <p className={(open === element.id ? 'p_show_active' : 'p_show')}>{element.description}</p>
-//             </div>
-//         </div>)
-//     };

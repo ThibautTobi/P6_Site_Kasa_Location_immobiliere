@@ -9,6 +9,5 @@ function error(){
             <Link to=".." relative='path' className='erreur_link'>Retourner sur la page d’accueil</Link>
         </div>
     )
-}
-
+};
 export default error;

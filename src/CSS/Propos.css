@@ -1,10 +1,10 @@
 .propos{
-    display: flex;
-    flex-direction: column;
+    justify-content:flex-start;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 100px;
     width: 90%;
+    height: auto;
+    margin-bottom: 200px;
 }
 .banner{
     height: 250px;
@@ -14,7 +14,7 @@
     height: 100%;
     border-radius: 25px;
     object-fit:cover;
-    /* mix-blend-mode: darken;c'est quoi regarder */
+    filter: brightness(70%);
 }
 .propos_div{
     width: 100%;
@@ -27,35 +27,3 @@
     height: auto;
     margin: 20px 0px 20px 0px;
 }
-
-/* .propos_div_des{
-    width: auto;
-    height: 47px;
-    display: flex;
-    background-color:#FF6060;
-    color: white;
-    border-radius: 5px;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 500;
-    font-size: 24px;
-    padding: 0px 18px 0px 18px;
-}
-.propos_div_des_show{
-    background-color: #F6F6F6;
-    width: auto;
-    height: auto;
-    padding: 0px 18px 0px 18px;
-    border-radius: 5px;
-}
-.p_show{
-    display: none;
-    font-weight: 400;
-    font-size: 24px;
-    line-height:34px;
-    padding: 20px 0px 20px 0px;
-    margin: 0px;
-}
- .p_show_active{
-    display: block;
-}  */

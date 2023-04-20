@@ -20,17 +20,22 @@
 }
 .p_show{
     display: none;
-    font-weight: 400;
-    font-size: 24px;
-    line-height:34px;
-    padding: 20px 0px 20px 0px;
-    margin: 0px;
 }
  .p_show_active{
     display: block;    
     font-weight: 400;
-    font-size: 24px;
+    font-size: 18px;
     line-height:34px;
     margin: 0px;
     padding: 20px 0px 20px 0px;
 } 
+/********** version mobile ***********/
+@media screen and (max-width: 768px) {
+.collapse_div_titre{
+    font-size: 13px;
+    height: 30px;
+}
+.p_show_active{
+    font-size: 13px;
+}
+}
