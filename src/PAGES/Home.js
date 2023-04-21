@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
     function Cart (){
 
         return data.map((element,index)=>
-            <Link to={"Fiche/"+element.id} className='a_cart'>
-                <div className='home_div_cart'key={index}>
+            <Link to={"Fiche/"+element.id} className='a_cart'key={index}>
+                <div className='home_div_cart'>
                     <div className='home_div_cart_img' id={element.id}>
                         <img className='cart_img' src={element.cover} alt='logement'></img>
                         <p className='p_titre'>{element.title}</p>
@@ -24,7 +24,7 @@ function Home () {
         <section>
             <div className="home_bannier"> 
                 <div className='home_bannier_cadre'>
-                    <img src={paysage_rocheux} class="home_bannier_payasage" alt="paysage rocheux" title='Chez vous , partout et ailleurs'></img>
+                    <img src={paysage_rocheux} className="home_bannier_payasage" alt="paysage rocheux" title='Chez vous , partout et ailleurs'></img>
                 </div>
                 <div className='home_bannier_cadre'>
                     <p className='home_bannier_payasage_titre'>Chez vous , partout et ailleurs</p>

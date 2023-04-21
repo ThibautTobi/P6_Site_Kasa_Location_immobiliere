@@ -19,7 +19,6 @@ function Fiche (){
     if (dataFiche === undefined){ 
         return <Navigate to="/"/> ;
     };
-
     /****** je créé le carrousel  *****/
 function Slideshow(props){
 
@@ -39,6 +38,26 @@ function Slideshow(props){
         const next = numb + 1;
         setNumb(next >= length ? 0 : next);
     };
+
+/******* je change toute les 5 seconde numb  a +1 qui est égal a l'index souhaiter, ensuite
+  numb sera comparer au index et qui changera l'etat actif de la class qui sera egale a numb *******/
+
+// console.log(numb);
+// useEffect(()=>{
+//     const interval = setInterval(()=>{
+//       setNumb(+1);
+//      },5000);
+//  console.log(numb);
+
+//        si ont dois le desinitialiser pour nettoyer
+//         return (() => {
+//             if (interval) {
+//                 clearInterval(interval);
+//               }
+//         }
+//         )
+//     }, [numb]);
+//    console.log(numb);
 
     return (
         <div className="fiche_carrousel"> 
@@ -63,7 +82,7 @@ function Slideshow(props){
 
         return props.tags.map((element,index)=>
             <ul className='fiche_infos_tag'key={index}> 
-                <li className='fiche_infos_tag_non' key={element}>{element}</li> 
+                <li className='fiche_infos_tag_non'>{element}</li> 
             </ul>
         )
     };
@@ -82,12 +101,12 @@ function Slideshow(props){
    };
 
 /****** je créé une liste des equipements  *****/
-    function Equipements (){
+    function Equipements (props){
 
-        return dataFiche.equipments.map((element,index)=>
-        <ul>
+        return props.equipments.map((element,index)=>
+        
             <li key={index}>{element}</li>
-        </ul>
+        
         )
     };
 /****** je créé deux const pour apporter dans mon collapse dans le paramettre name  *****/
@@ -122,7 +141,7 @@ return (
                     <Collapses id={dataFiche.id} name={titre1} description={dataFiche.description}/>
                 </div>
                 <div className='display_infos_width'>
-                    <Collapses id={dataFiche.id} name={titre2} description={Equipements()}/>
+                    <Collapses id={dataFiche.id} name={titre2} description={Equipements(dataFiche)}/>
                 </div>
             </div>
         </section>  

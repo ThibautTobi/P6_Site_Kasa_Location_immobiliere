@@ -1,6 +1,9 @@
+section{
+    margin-bottom: auto;
+}
 .home_bannier{
     height: 223px;
-    margin-bottom: 40px;
+    margin-bottom: auto;
 }
 .home_bannier_cadre{
     margin-left: 5%;
@@ -26,6 +29,7 @@
 .home_div{
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 40px;
     margin-bottom: 50px;
     background-color: #F6F6F6;
     padding: 56px 50px 43px 50px;

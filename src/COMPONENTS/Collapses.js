@@ -22,7 +22,7 @@ import '../CSS/Collapses.css';
             }
              };
     return (
-                    <div id={id}>
+                    <div id={id} key={id}>
                         <div className='collapse_div_titre' onClick={ChangeStyle}>
                             {name}
                             <img src={fleche} alt='fleche'></img>
@@ -33,6 +33,6 @@ import '../CSS/Collapses.css';
                             </p>
                         </div>
                     </div>
-                    )
+            )
     };
 export default Collapses;
