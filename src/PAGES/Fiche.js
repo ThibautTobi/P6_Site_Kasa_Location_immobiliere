@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import flecheGauche from '../IMG/Vector_gauche.svg';
 import flecheDroite from '../IMG/Vector_droite.svg';
 import {data} from '../Data/Data';
@@ -24,9 +24,25 @@ function Slideshow(props){
 
     const [numb,setNumb] = useState(0);
 
-
-/****** je récupére le nombre de photos  *****/
+    /****** je récupére le nombre de photos  *****/
     const length = dataFiche.pictures.length ;
+
+/******* je change toute les 5 seconde numb  a +1 qui est égal a l'index souhaiter, ensuite
+  numb sera comparer au index et qui changera l'etat actif de la class qui sera egale a numb *******/
+
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+        if(numb <= length -2){
+          setNumb(numb +1); 
+        }else{
+          setNumb(0);
+        }
+        },5000)
+
+    return (() => {        
+                clearInterval(interval);  
+        })
+      }, [numb, length]);
 
 /****** au clic sur la fleche précédent  *****/
     function handleClicPrev (){    
@@ -38,26 +54,6 @@ function Slideshow(props){
         const next = numb + 1;
         setNumb(next >= length ? 0 : next);
     };
-
-/******* je change toute les 5 seconde numb  a +1 qui est égal a l'index souhaiter, ensuite
-  numb sera comparer au index et qui changera l'etat actif de la class qui sera egale a numb *******/
-
-// console.log(numb);
-// useEffect(()=>{
-//     const interval = setInterval(()=>{
-//       setNumb(+1);
-//      },5000);
-//  console.log(numb);
-
-//        si ont dois le desinitialiser pour nettoyer
-//         return (() => {
-//             if (interval) {
-//                 clearInterval(interval);
-//               }
-//         }
-//         )
-//     }, [numb]);
-//    console.log(numb);
 
     return (
         <div className="fiche_carrousel"> 
@@ -73,8 +69,7 @@ function Slideshow(props){
                 </div> 
                 <p className='fiche_carrousel_num'>{numb + 1}/{length}</p>
             </div>  
-        </div>
-    )
+        </div>)
     };
 
 /****** je créé une liste dynamique des différents tags *****/
@@ -103,12 +98,11 @@ function Slideshow(props){
 /****** je créé une liste des equipements  *****/
     function Equipements (props){
 
-        return props.equipments.map((element,index)=>
-        
-            <li key={index}>{element}</li>
-        
-        )
+        return props.equipments.map(
+            (element,index)=> <li key={index}>{element}</li>
+            )
     };
+    
 /****** je créé deux const pour apporter dans mon collapse dans le paramettre name  *****/
 
         const titre1 = 'description';
@@ -148,64 +142,3 @@ return (
    )
 };
 export default Fiche;
-
-
-    //const [changeImg,setChangeImg] = useState(props.pictures[0]);
-    //const [activeIndex,setActiveIndex] = useState(0);
-
-//     const updateIndex = (newIndex) =>{
-//        newIndex >= props.pictures ? newIndex = 0 : setActiveIndex(newIndex);
-//        console.log(newIndex);
-//     };
-
-// useEffect(()=>{
-//     const interval = setInterval(()=>{
-//         updateIndex(length !== activeIndex ?  activeIndex + 1 : newIndex);},5000);
-
-//         return (() => {
-//             if (interval) {
-//                 clearInterval(interval);
-//               }
-//         }
-//         )
-//     }, [activeIndex]);
-
-
-
-    /* en cours de devellopement */
-    // function changeImgAuto (){ 
-        // console.log(length);
-    // if (length > 0 ){
-        // setInterval(() => {
-        //     setChangeImg( props.pictures[0] + 1 )
-        // }, 5000)
-    //}
-// };
-    //     setInterval(() => {
-    //         setChangeImg(props.pictures[+1])
-    //     }, 5000)
-    // ;
-        //console.log(changeImg);
-    // function changeImgAuto (){ 
-    // setInterval(() => {
-    //     setChangeImg(props.pictures[+1])
-    //     console.log(changeImg);
-    // }, 5000)};
-    
-
-    ////////////////////////////// a tester changement d'image auto
-    // const changeImage = () => {
-    //     const [image, setImage] = useState(dataFiche.pictures);
-      
-    //     useEffect(() => {
-    //         //Implementing the setInterval method
-    //         const interval = setInterval(() => {
-    //             setImage(dataFiche.pictures.length + 1);
-    //         }, 1000);
-      
-            //Clearing the interval
-        //     return () => clearInterval(interval);
-        // }, [image]);
-      
-        // return <h1>{}</h1>;
-    //};
