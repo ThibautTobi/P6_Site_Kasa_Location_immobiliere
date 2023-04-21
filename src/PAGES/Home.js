@@ -4,7 +4,7 @@ import paysage_rocheux from '../IMG/cote_roche.png';
 import { Link } from 'react-router-dom';
 
 /****** j'incrémente mes différentes cartes a partir de data et j'englobe avec un link pour rediriger vers une fiche de présentation *****/
-    function Cart (){
+function Cart (){
 
         return data.map((element,index)=>
             <Link to={"Fiche/"+element.id} className='a_cart'key={index}>
