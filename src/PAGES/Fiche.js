@@ -17,7 +17,7 @@ function Fiche (){
 
     /****** je verifie si il y a une erreur avec l'id si il n'existe pas dans les data redirection vers "/"  *****/
     if (dataFiche === undefined){ 
-        return <Navigate to="/"/> ;
+        return <Navigate to="/404"/> ;
     };
     /****** je créé le carrousel  *****/
     function Slideshow(props){
@@ -135,8 +135,8 @@ function Fiche (){
                 };
 
 /****** je créé deux const pour apporter dans mon collapse dans le paramettre name  *****/
-        const titre1 = 'description';
-        const titre2 = 'equipement';
+        const titre1 = 'Description';
+        const titre2 = 'Equipement';
 
         return (
                 <div className='display_infos'>

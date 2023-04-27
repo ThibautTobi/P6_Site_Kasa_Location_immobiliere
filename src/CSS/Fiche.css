@@ -85,17 +85,20 @@
     color: white;
     align-items: center;
     text-align: center;
+    border-radius: 5px;
 }
 .fiche_infos_droite{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     width: 40%;
+    padding-bottom: 16px;
+    justify-content: space-between;
 }
 .fiche_infos_droite_host{
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: auto;
     align-items: center;
 }
 .p_name_host{
@@ -116,7 +119,6 @@
     border-radius: 50px;
     background-color: grey;
     margin-left: 20px;
-
 }
 .fiche_infos_img_picture{
     width: 64px;
